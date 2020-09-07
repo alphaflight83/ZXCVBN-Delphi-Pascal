@@ -84,7 +84,7 @@ begin
     greedy := TRegEx.Create('(.+)\1+');
     lazy := TRegEx.Create('(.+?)\1+');
     lazyAnchored := TRegEx.Create('^(.+?)\1+$');
-    lastIndex := 0;
+    lastIndex := 1; // was 0, which resulted in an index out of bounds (0) error in the following match calls
 
     while (lastIndex < APassword.Length) do
     begin
